@@ -1,7 +1,5 @@
 from sys import argv 
 
-script, filename = argv
-
 def counting_words(filename):
     data = open(filename)
     counting = {}
@@ -13,9 +11,19 @@ def counting_words(filename):
                 counting[word] = 1
             else: 
                 counting[word] = counting[word] + 1 
-    print counting
+                
+    return counting
+
+def printing_by_line(counting):
+    for k,v in counting.items():
+        print k,v 
+
+def main():
+    script, filename = argv
+    counted_dict = counting_words(filename)
+    pretty_list = printing_by_line(counted_dict)
 
 
-counting_words(filename)
-
+if __name__ == '__main__':
+    main()
 
