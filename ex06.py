@@ -2,10 +2,15 @@ from sys import argv
 
 script, filename = argv
 
-def s_d(file_name):
-    info = open(file_name)
-    for line in info:
-        line = line.rstrip()
-        new_sort_dic = dict[(line)]
-    return new_sort_dic 
-print s_d(filename)
+info = open(filename)
+
+new_sort_dic = {}
+
+for line in info:
+    line = line.rstrip()
+    entries = line.split(":")
+    key = entries[0]
+    value = entries[1]
+    new_sort_dic[key] = value
+
+print sorted(new_sort_dic.items())
